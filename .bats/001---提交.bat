@@ -5,7 +5,6 @@ cd ../
 git add .
 git commit -m %datetimeStr%
 git push origin develop
-pause
 
 
 
