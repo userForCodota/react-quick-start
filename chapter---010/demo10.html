@@ -26,6 +26,8 @@
                 constructor(name, age, grade) {
                     super(name, age);
                     this.grade = grade;
+                    // 还可以加入其他的属性
+                    this.school = 'MIT';
                 }
 
                 // 重写了父类的方法
@@ -35,7 +37,7 @@
 
 
                 studentSpeak() {
-                    console.log('I am a student');
+                    console.log('I am a student,school is ' + this.school);
                 }
             }
 
