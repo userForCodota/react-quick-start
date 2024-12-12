@@ -35,6 +35,7 @@
 
                 changeWeather = () => {
                     console.log("你点击了标题,将改变值");
+                    // 关于`setState`:state不能直接修改，必须通过`setState`方法修改
                     this.setState({
                         isRain: !this.state.isRain,
                         isHot: !this.state.isHot
