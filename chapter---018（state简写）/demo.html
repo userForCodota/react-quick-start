@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            class Weather extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        isRain: true,
+                        isHot: false
+                    };
+                }
+
+                render() {
+                    console.log(this);
+                    // return <h1>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
+                    // return <h1 onClick={handleClick}>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
+                    return <h1 onClick={this.changeWeather}>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
+                }
+
+                changeWeather = () => {
+                    console.log("你点击了标题,将改变值");
+                    // 关于`setState`:state不能直接修改，必须通过`setState`方法修改
+                    this.setState({
+                        isRain: !this.state.isRain,
+                        isHot: !this.state.isHot
+                    });
+                }
+            }
+
+            let VDOM = <Weather/>;
+            // 新版写法
+            let container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+            root.render(VDOM);
+        </script>
+    </body>
+</html>
