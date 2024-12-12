@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            const myId = '1234';
+            const myData = 'dororo';
+            const VDOM = (
+                <h2 id={myId.toLowerCase()}>
+                    <span>{myData.toLowerCase()}</span>
+                </h2>
+            );
+            // 教程旧版写法
+            ReactDOM.render(VDOM, document.getElementById('root'));
+        </script>
+        <!--
+          Note: this page is a great way to try React but it's not suitable for production.
+          It slowly compiles JSX with Babel in the browser and uses a large development build of React.
+
+          Read this page for starting a new React project with JSX:
+          https://react.dev/learn/start-a-new-react-project
+
+          Read this page for adding React with JSX to an existing project:
+          https://react.dev/learn/add-react-to-an-existing-project
+        -->
+    </body>
+</html>
