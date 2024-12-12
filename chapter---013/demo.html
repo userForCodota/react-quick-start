@@ -17,6 +17,22 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
+            class Weather extends React.Component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        isRain: true,
+                        isHot: false
+                    };
+                }
+
+                render() {
+                    console.log(this);
+                    return <h1>今天天气很好</h1>;
+                }
+            }
+
+            let VDOM = <Weather/>;
             // 新版写法
             let container = document.getElementById('root');
             const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
