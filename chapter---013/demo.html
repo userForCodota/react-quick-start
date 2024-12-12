@@ -28,7 +28,7 @@
 
                 render() {
                     console.log(this);
-                    return <h1>今天天气很好</h1>;
+                    return <h1>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
                 }
             }
 
