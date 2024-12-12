@@ -27,14 +27,9 @@
                 }
 
                 render() {
-                    // console.log(this);
-                    // 错误写法:onClick={handleClick()},这样会立即执行
-                    return <h1 onClick={ handleClick }>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
+                    console.log(this);
+                    return <h1>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
                 }
-            }
-
-            function handleClick() {
-                console.log('标题被点击了');
             }
 
             let VDOM = <Weather/>;
