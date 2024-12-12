@@ -20,6 +20,7 @@
             // 1.0---创建函数式组件
             // TODO 函数名必须大写开头,才能被识别为组件
             function Demo() {
+                console.log(this); // undefined
                 return <h2>我是一个函数式组件</h2>;
             }
 
