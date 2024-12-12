@@ -28,6 +28,7 @@
                     this.grade = grade;
                 }
 
+                // 重写了父类的方法
                 sayHello() {
                     console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, I am in grade ${this.grade}.`);
                 }
@@ -40,9 +41,9 @@
 
 
             let student = new Student('John', 20, 12);
-            student.speak();
-            student.studentSpeak();
-
+            student.speak();// I am speaking
+            student.studentSpeak();// I am a student
+            student.sayHello(); // Hello, my name is John, I am 20 years old, I am in grade 12.
 
         </script>
     </body>
