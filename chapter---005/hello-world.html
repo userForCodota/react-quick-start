@@ -14,28 +14,23 @@
         <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
         <script src="../lib/babel.js"></script>
     </head>
+    <style>
+        .title {
+            background-color: rgb(0, 133, 125);
+        }
+    </style>
     <body>
         <div id="root"></div>
         <script type="text/babel">
             const myId = '1234';
             const myData = 'dororo';
             const VDOM = (
-                <h2 id={myId.toLowerCase()}>
-                    <span>{myData.toLowerCase()}</span>
+                <h2 className="title" id={myId.toLowerCase()}>
+                    <span style={{color: 'red', fontSize: '29px'}}>{myData.toLowerCase()}</span>
                 </h2>
             );
             // 教程旧版写法
             ReactDOM.render(VDOM, document.getElementById('root'));
         </script>
-        <!--
-          Note: this page is a great way to try React but it's not suitable for production.
-          It slowly compiles JSX with Babel in the browser and uses a large development build of React.
-
-          Read this page for starting a new React project with JSX:
-          https://react.dev/learn/start-a-new-react-project
-
-          Read this page for adding React with JSX to an existing project:
-          https://react.dev/learn/add-react-to-an-existing-project
-        -->
     </body>
 </html>
