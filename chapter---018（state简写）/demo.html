@@ -21,10 +21,12 @@
             class Weather extends React.Component {
                 constructor(props) {
                     super(props);
-                    this.state = {
-                        isRain: true,
-                        isHot: false
-                    };
+                }
+
+                // state简写
+                state = {
+                    isRain: true,
+                    isHot: true
                 }
 
                 render() {
@@ -34,6 +36,7 @@
                     return <h1 onClick={this.changeWeather}>今天天气{this.state.isRain ? '下雨' : '不下雨'}, {this.state.isHot ? '炎热' : '凉爽'}</h1>;
                 }
 
+                // 这里也是简写,`changeWeather`就相当于为示例赋值,并且使用箭头函数,让`this`指向当前实例
                 changeWeather = () => {
                     console.log("你点击了标题,将改变值");
                     // 关于`setState`:state不能直接修改，必须通过`setState`方法修改
