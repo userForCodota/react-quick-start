@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+        <!--这个是用来校验props的类型的-->
+        <script src="../lib/prop-types.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            // 定义一个组件
+            class Person extends React.Component {
+                static propTypes = {
+                    name: PropTypes.string.isRequired,
+                    gender: PropTypes.string,
+                    speck: PropTypes.func,// 必须是函数
+                }
+
+                static defaultProps = {
+                    gender: '男'
+                }
+
+                render() {
+                    // 结构赋值
+                    const {name, gender, age} = this.props;
+                    return (
+                        <ul>
+                            <li>姓名:{name}</li>
+                            <li>性别:{gender}</li>
+                            <li>年龄:{age + 1}</li>
+                        </ul>
+                    )
+                }
+            }
+
+
+            function speck() {
+                console.log('speck');
+            }
+
+
+            const personFromDB = {
+                name: undefined,
+                gender: undefined,
+                age: 18
+            };
+            // age="99" 改为 age={99} 使得age为number类型,
+            // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age="99"/>;
+            // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99}/>;
+            // let VDOM = <Person {...personFromDB}/>;
+            let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99} speck={speck}/>;
+
+
+            // 新版写法
+            let container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+            root.render(VDOM);
+        </script>
+    </body>
+</html>
