@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+        <!--这个是用来校验props的类型的-->
+        <script src="../lib/prop-types.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+
+            // 说明:当定义函数式组件时，我们可以通过props参数来接收外部传递过来的数据
+            function Person(props) {
+                return (
+                    <div>
+                        <h1>姓名：{props.name}</h1>
+                        <h2>年龄：{props.age}</h2>
+                    </div>
+                );
+            }
+
+            const VDOM = (
+                <div>
+                    <Person name="张三" age={18}/>
+                    <Person name="李四" age={20}/>
+                </div>
+            );
+
+            // 新版写法
+            let container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+            root.render(VDOM);
+        </script>
+    </body>
+</html>
