@@ -21,8 +21,14 @@
         <script type="text/babel">
             class Demo extends React.Component {
                 showLeftData = () => {
-                    console.log(this);
-                    alert('点击按钮提示数据');
+                    // console.log(this);
+                    const {leftInput} = this.refs;
+                    alert(leftInput.value);
+                }
+
+                showRightData = () => {
+                    const {rightInput} = this.refs;
+                    alert(rightInput.value);
                 }
 
 
@@ -33,7 +39,7 @@
                             &nbsp;
                             <button onClick={this.showLeftData}>点击提示数据</button>
                             &nbsp;
-                            <input ref="rightInput" type="text" placeholder="失去焦点提示数据"/>
+                            <input ref="rightInput" onBlur={this.showRightData} type="text" placeholder="失去焦点提示数据"/>
                         </div>
                     );
                 }
