@@ -37,11 +37,18 @@
             Person.propTypes = {
                 name: PropTypes.string.isRequired,
                 gender: PropTypes.string,
+                speck: PropTypes.func,// 必须是函数
             }
 
             Person.defaultProps = {
                 gender: '男'
             }
+
+
+            function speck() {
+                console.log('speck');
+            }
+
 
             const personFromDB = {
                 name: undefined,
@@ -51,7 +58,9 @@
             // age="99" 改为 age={99} 使得age为number类型,
             // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age="99"/>;
             // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99}/>;
-            let VDOM = <Person {...personFromDB}/>;
+            // let VDOM = <Person {...personFromDB}/>;
+            let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99} speck={speck}/>;
+
 
             // 新版写法
             let container = document.getElementById('root');
