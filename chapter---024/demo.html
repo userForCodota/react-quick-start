@@ -45,16 +45,21 @@
             }
 
 
+            function speck() {
+                console.log('speck');
+            }
+
+
             const personFromDB = {
-                name: "张三",
+                name: undefined,
                 gender: undefined,
                 age: 18
             };
             // age="99" 改为 age={99} 使得age为number类型,
             // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age="99"/>;
             // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99}/>;
-            let VDOM = <Person {...personFromDB}/>;
-            // let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99} speck={speck}/>;
+            // let VDOM = <Person {...personFromDB}/>;
+            let VDOM = <Person name="Tom" gender="沃尔玛购物袋" age={99} speck={speck}/>;
 
 
             // 新版写法
