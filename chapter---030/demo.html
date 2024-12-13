@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+        <!--这个是用来校验props的类型的-->
+        <script src="../lib/prop-types.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            class Demo extends React.Component {
+                // 调用createRef()创建ref容器,该容器可以存储被ref标识的节点对象,且是专用的,即重复设置会覆盖
+                leftInputRef = React.createRef();
+                rightInputRef = React.createRef();
+
+
+                showLeftData = () => {
+                    alert(this.leftInputRef.current.value);
+                }
+
+                showRightData = () => {
+                    alert(this.rightInputRef.current.value);
+                }
+
+
+                render() {
+                    return (
+                        <div>
+                            {/*<input ref={c => this.leftInput = c} type="text" placeholder="点击按钮提示数据"/>*/}
+                            <input ref={this.leftInputRef} type="text" placeholder="点击按钮提示数据"/>
+                            &nbsp;
+                            <button onClick={this.showLeftData}>点击提示数据</button>
+                            &nbsp;
+                            {/*<input ref={c => this.rightInput = c} onBlur={this.showRightData} type="text" placeholder="失去焦点提示数据"/>*/}
+                            <input ref={this.rightInputRef} onBlur={this.showRightData} type="text" placeholder="失去焦点提示数据"/>
+                        </div>
+                    );
+                }
+            }
+
+            const VDOM = <Demo/>;
+
+            // 新版写法
+            let container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+            root.render(VDOM);
+        </script>
+    </body>
+</html>
