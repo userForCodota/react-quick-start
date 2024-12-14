@@ -41,8 +41,8 @@
                     }, 200);
                 }
 
-                // mounted 表示挂载
-                mounted() {
+                componentWillUnmount() {
+                    clearInterval(this.timer);
                 }
 
 
