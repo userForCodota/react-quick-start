@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <title>Hello World</title>
+        <!--核心库-->
+        <!--        <script src="https://unpkg.com/react@18/umd/react.development.js"></script>-->
+        <script src="../lib/react.development.js"></script>
+        <!--核心库的DOM渲染-->
+        <!--        <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>-->
+        <script src="../lib/react-dom.development.js"></script>
+        <!-- Don't use this in production: -->
+        <!--这个是用来编译jsx语法的，不要在生产环境中使用-->
+        <!--        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+        <script src="../lib/babel.js"></script>
+        <!--这个是用来校验props的类型的-->
+        <script src="../lib/prop-types.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            class Count extends React.Component {
+                // （1）
+                constructor(props) {
+                    console.log('[Count]:constructor', props);
+                    super(props);
+                }
+
+
+                state = {
+                    count: 0
+                };
+
+                add = () => {
+                    this.setState((state) => ({count: state.count + 1}));
+                }
+
+                // （2）
+                componentWillMount() {
+                    console.log('[Count]:componentWillMount');
+                }
+
+                // （3）
+                render() {
+                    return (
+                        <div>
+                            <h2>当前求和为</h2>
+                            <button>点我加一</button>
+                        </div>
+                    );
+                }
+
+                // （4）
+                componentDidMount() {
+                    console.log('[Count]:componentDidMount');
+                }
+
+                // （5）
+                componentWillReceiveProps() {
+                    console.log('[Count]:componentWillReceiveProps');
+                }
+
+                // （6）
+                shouldComponentUpdate() {
+                    console.log('[Count]:shouldComponentUpdate');
+                    return true;
+                }
+
+                // （7）
+                componentWillUpdate() {
+                    console.log('[Count]:componentWillUpdate');
+                }
+
+                // （8）
+
+                componentDidUpdate() {
+                    console.log('[Count]:componentDidUpdate');
+                }
+
+                // （9）
+                componentWillUnmount() {
+                    console.log('[Count]:componentWillUnmount');
+                }
+
+            }
+
+            const VDOM = <Count/>;
+
+            // 新版写法
+            let container = document.getElementById('root');
+            const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
+            root.render(VDOM);
+        </script>
+    </body>
+</html>
