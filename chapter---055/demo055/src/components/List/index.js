@@ -6,7 +6,12 @@ export default class List extends Component {
         return (
             <div>
                 <ul>
-                    <Item></Item>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    <Item/>
                 </ul>
             </div>
         );
