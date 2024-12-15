@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {nanoid} from 'nanoid';
 import "./index.css";
 
 export default class Header extends Component {
@@ -9,7 +10,7 @@ export default class Header extends Component {
             alert('输入不能为空');
             return;
         }
-        const todoObj = {id: Date.now(), name: target.value, done: false};
+        const todoObj = {id: nanoid(8), name: target.value, done: false};
         this.props.addTodo(todoObj);
         target.value = '';
     }
