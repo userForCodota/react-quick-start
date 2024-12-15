@@ -10,6 +10,10 @@
     background-color: #f4f4f4; /* 可选背景色 */
 }
 
+.App input[type="checkbox"] {
+    transform: scale(2); /* 放大1.5倍 */
+    margin: 10px; /* 可选：调整间距 */
+}
 
 .App > .app-content {
     width: 50%; /* 设置宽度 */

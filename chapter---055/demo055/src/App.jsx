@@ -1,18 +1,30 @@
+import React, {Component} from "react";
 import Header from './components/Header';
 import List from './components/List';
 import Footer from './components/Footer';
 import './App.css';
 
-function App() {
-    return (
-        <div className="App">
-            <div className="app-content">
-                <Header/>
-                <List/>
-                <Footer/>
-            </div>
-        </div>
-    );
-}
+export default class App extends Component {
+    state = {
+        todos: [
+            {id: '001', name: '吃饭', done: true},
+            {id: '002', name: '睡觉', done: true},
+            {id: '003', name: '打代码', done: false},
+            {id: '004', name: '逛街', done: false},
+        ]
+    }
 
-export default App;
+
+    render() {
+        const {todos} = this.state;
+        return (
+            <div className="App">
+                <div className="app-content">
+                    <Header/>
+                    <List todos={todos}/>
+                    <Footer/>
+                </div>
+            </div>
+        );
+    }
+}
