@@ -19,49 +19,38 @@
     <body>
         <div id="root"></div>
         <script type="text/babel">
-            class Father extends React.Component {
-                state = {
-                    carName: '奔驰'
-                };
-
-                changeCar = () => {
-                    this.setState({
-                        carName: '宝马'
-                    });
-                };
-
-                render() {
-                    return (
-                        <div>
-                            <div>我是父亲</div>
-                            <button onClick={this.changeCar}>换车</button>
-                            <Son carName={this.state.carName}/>
-                        </div>
-                    );
+            class Count extends React.component {
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        count: 0
+                    }
                 }
-            }
 
-            class Son extends React.Component {
 
-                // componentWillReceiveProps(newProps) {
-                UNSAFE_componentWillReceiveProps(newProps) {
-                    console.log('[Son]:UNSAFE_componentWillReceiveProps', newProps);
+                static getDerivedStateFromProps(props, state) {
+                    // 返回一个对象来更新state
+                    return {
+                        count: props.count
+                    }
                 }
 
                 render() {
                     return (
                         <div>
-                            <div>我是儿子</div>
-                            <div>我接到的车是：{this.props.carName}</div>
+                            <p>{this.state.count}</p>
+                            <button onClick={() => this.setState({count: this.state.count + 1})}>+1</button>
                         </div>
-                    );
+                    )
                 }
             }
 
-            const VDOM = <Father/>;
 
-            // 新版写法
-            let container = document.getElementById('root');
+            const VDOM =
+
+                // 新版写法
+                let
+            container = document.getElementById('root');
             const root = ReactDOM.createRoot(container); // createRoot(container!) if you use TypeScript
             root.render(VDOM);
         </script>
