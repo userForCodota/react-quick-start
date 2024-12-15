@@ -1,10 +1,13 @@
 import React, {Component} from "react";
+import Item from "../Item";
 
 export default class List extends Component {
     render() {
         return (
             <div>
-                <h1>this🤨is😋List😛Component🤪</h1>
+                <ul>
+                    <Item></Item>
+                </ul>
             </div>
         );
     }

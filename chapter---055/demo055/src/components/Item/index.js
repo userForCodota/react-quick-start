@@ -4,7 +4,13 @@ export default class Item extends Component {
     render() {
         return (
             <div>
-                <h1>this🤨is😋Item😛Component🤪</h1>
+                <li>
+                    <label>
+                        <input type="checkbox"/>
+                        <span>任务名称</span>
+                    </label>
+                    <button className="btn btn-danger" style={{display: "none"}}>删除</button>
+                </li>
             </div>
         );
     }
