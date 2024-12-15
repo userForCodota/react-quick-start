@@ -5,6 +5,14 @@ import Footer from './components/Footer';
 import './App.css';
 
 export default class App extends Component {
+    addTodo = (todoObj) => {
+        const {todos} = this.state;
+        const newTodos = [todoObj, ...todos];// 在前面添加
+        this.setState({todos: newTodos});
+        console.log(newTodos);
+    }
+
+
     state = {
         todos: [
             {id: '001', name: '吃饭', done: true},
@@ -20,7 +28,7 @@ export default class App extends Component {
         return (
             <div className="App">
                 <div className="app-content">
-                    <Header/>
+                    <Header addTodo={this.addTodo}/>
                     <List todos={todos}/>
                     <Footer/>
                 </div>
