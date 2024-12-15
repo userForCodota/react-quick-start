@@ -1,10 +1,14 @@
 import React, {Component} from "react";
+import "./index.css";
 
 export default class Header extends Component {
+
     render() {
         return (
             <div>
-                <h1>this🤨is😋Header😛Component🤪</h1>
+                <div className="todo-header">
+                    <input type="text" placeholder="请输入任务名称,按回车键确认即可添加"/>
+                </div>
             </div>
         );
     }
