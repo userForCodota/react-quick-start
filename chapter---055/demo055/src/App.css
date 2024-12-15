@@ -1,2 +1,25 @@
 .App {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 如果需要垂直居中，也可以使用这个 */
+    min-height: 100vh; /* 使页面的内容占满整个视口高度 */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* 确保 padding 和 border 不影响布局尺寸 */
+    font-family: Arial, sans-serif; /* 可选字体样式 */
+    background-color: #f4f4f4; /* 可选背景色 */
+}
+
+
+.App > .app-content {
+    width: 50%; /* 设置宽度 */
+    border: skyblue 2px solid; /* 可选：添加边框 */
+    border-radius: 4px;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none; /* 去掉 li 前面的点 */
+    margin: 0; /* 可选：去掉默认的外边距 */
+    padding: 0; /* 可选：去掉默认的内边距 */
 }
