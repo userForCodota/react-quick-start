@@ -1,4 +1,7 @@
 .todo-header input {
-    font-size: 20px;
+    width: 99%;
+    font-size: 30px;
     color: rgb(0, 133, 125);
+    border-radius: 4px;
+    margin-bottom: 20px;
 }

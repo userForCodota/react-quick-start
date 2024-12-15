@@ -1,13 +1,13 @@
 import React, {Component} from "react";
+import "./index.css";
 
 export default class Footer extends Component {
     render() {
         return (
-            <div>
-                <input type="checkbox"/>
-                &nbsp;&nbsp;
+            <div className="todo-footer">
+                <input type="checkbox"/>全选
                 已完成[0]/全部[2]
-                <button>清楚已完成任务</button>
+                <button>清除已完成任务</button>
             </div>
         );
     }
