@@ -14,9 +14,10 @@ export default class AxiosWorker extends Component {
         }*/
 
     getUsers = () => {
-        axios.post("http://localhost:7788/sys-user/page?pageNum=1&pageSize=1").then(res => {
+        const payload = {};
+        axios.post("/api/sys-user/page?pageNum=1&pageSize=99", payload).then(res => {
             console.log(res);
-            // this.setState({users: res.data.data.users});
+            this.setState({users: res.data.data.users});
         });
     }
 
