@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd/dist/reset.css'; // 引入 Antd 的重置样式文件
+import './index.css';         // 如果你有自定义样式
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
